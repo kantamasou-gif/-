@@ -1,0 +1,293 @@
+
+<style>
+  .sec { margin-bottom: 2rem; }
+  .sec-label { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .05em; margin: 0 0 12px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+  .kpi { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: .9rem 1rem; }
+  .kpi .lbl { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 6px; }
+  .kpi .row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .kpi .val { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+  .kpi .badge { font-size: 11px; font-weight: 500; padding: 2px 7px; border-radius: 20px; }
+  .up   { background: #EAF3DE; color: #27500A; }
+  .down { background: #FCEBEB; color: #791F1F; }
+  .neut { background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-secondary); }
+  .ch-wrap { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .leg { display: flex; gap: 16px; margin-bottom: 10px; font-size: 12px; color: var(--color-text-secondary); flex-wrap: wrap; }
+  .leg span { display: flex; align-items: center; gap: 5px; }
+  .ld { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .top3-grid { display: flex; flex-direction: column; gap: 8px; }
+  .t3card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: .9rem 1.1rem; }
+  .t3head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .rank-badge { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; }
+  .r1 { background: #FAEEDA; color: #633806; }
+  .r2 { background: #D3D1C7; color: #444441; }
+  .r3 { background: #F5C4B3; color: #712B13; }
+  .t3text { font-size: 13px; color: var(--color-text-primary); line-height: 1.5; margin: 0 0 8px; }
+  .t3metrics { display: flex; gap: 12px; flex-wrap: wrap; }
+  .mpill { font-size: 11px; color: var(--color-text-secondary); display: flex; align-items: center; gap: 4px; }
+  .mpill strong { font-weight: 500; color: var(--color-text-primary); }
+  .dot6 { width: 6px; height: 6px; border-radius: 50%; }
+  .link-btn { font-size: 11px; color: var(--color-text-info); text-decoration: none; margin-left: auto; flex-shrink: 0; }
+  .aud-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+  .aud-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: .9rem 1rem; }
+  .aud-card .lbl { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 10px; }
+  .bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+  .bar-lbl { font-size: 11px; color: var(--color-text-secondary); width: 52px; text-align: right; flex-shrink: 0; }
+  .bar-track { flex: 1; background: var(--color-background-secondary); border-radius: 3px; height: 14px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; }
+  .bar-pct { font-size: 11px; color: var(--color-text-secondary); width: 32px; flex-shrink: 0; }
+  .note-box { padding: 8px 10px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+  @media(max-width:600px){ .kpi-grid{grid-template-columns:repeat(2,1fr);} .grid2{grid-template-columns:1fr;} .aud-grid{grid-template-columns:1fr;} }
+</style>
+
+<div style="padding:1rem 0;">
+
+  <!-- KPI比較 -->
+  <div class="sec">
+    <p class="sec-label">月間合計　2月 → 3月</p>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <p class="lbl">インプレッション</p>
+        <div class="row"><span class="val">233K</span><span class="badge down">▼ 44%</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月 418K</div>
+      </div>
+      <div class="kpi">
+        <p class="lbl">エンゲージメント率</p>
+        <div class="row"><span class="val">2.48%</span><span class="badge up">▲ +0.12pt</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月 2.36%</div>
+      </div>
+      <div class="kpi">
+        <p class="lbl">ブックマーク</p>
+        <div class="row"><span class="val">187</span><span class="badge up">▲ 153%</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月 74</div>
+      </div>
+      <div class="kpi">
+        <p class="lbl">リポスト</p>
+        <div class="row"><span class="val">137</span><span class="badge up">▲ 111%</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月 65</div>
+      </div>
+      <div class="kpi">
+        <p class="lbl">いいね</p>
+        <div class="row"><span class="val">2,544</span><span class="badge up">▲ 23%</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月 2,067</div>
+      </div>
+      <div class="kpi">
+        <p class="lbl">プロフアクセス</p>
+        <div class="row"><span class="val">1,067</span><span class="badge down">▼ 75%</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月 4,277</div>
+      </div>
+      <div class="kpi">
+        <p class="lbl">フォロワー数</p>
+        <div class="row"><span class="val">13,474</span><span class="badge down">▼ −14</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月末 13,488</div>
+      </div>
+      <div class="kpi">
+        <p class="lbl">投稿数</p>
+        <div class="row"><span class="val">69件</span><span class="badge neut">▲ 3%</span></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">2月 67件</div>
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <p class="note-box">フォロワー数：2月末 13,488人 → 3月末 13,474人（−14人）。2月のバズで急増したフォロワーの離脱が3月に発生したと見られます。CSVの新規フォロー316・解除195の差分（+121）とズレがあるのは、計測タイミングや非アクティブアカウントの整理によるものと考えられます。</p>
+    </div>
+  </div>
+
+  <!-- 投稿1件あたり平均 -->
+  <div class="sec">
+    <p class="sec-label">オリジナル投稿1件あたり平均（引用・返信除外）</p>
+    <div class="ch-wrap">
+      <div class="leg">
+        <span><span class="ld" style="background:#B5D4F4"></span>2月（112件）</span>
+        <span><span class="ld" style="background:#378ADD"></span>3月（195件）</span>
+      </div>
+      <div style="position:relative;width:100%;height:240px;"><canvas id="perPostChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 月別推移チャート -->
+  <div class="sec grid2">
+    <div>
+      <p class="sec-label">日別インプレッション推移</p>
+      <div class="ch-wrap">
+        <div class="leg">
+          <span><span class="ld" style="background:#B5D4F4"></span>2月</span>
+          <span><span class="ld" style="background:#378ADD"></span>3月</span>
+        </div>
+        <div style="position:relative;width:100%;height:220px;"><canvas id="dailyImpChart"></canvas></div>
+      </div>
+    </div>
+    <div>
+      <p class="sec-label">主要指標 月別比較</p>
+      <div class="ch-wrap">
+        <div class="leg">
+          <span><span class="ld" style="background:#B5D4F4"></span>2月</span>
+          <span><span class="ld" style="background:#378ADD"></span>3月</span>
+        </div>
+        <div style="position:relative;width:100%;height:220px;"><canvas id="metricsChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3月 指定TOP3 -->
+  <div class="sec">
+    <p class="sec-label">3月 オリジナル投稿 TOP 3（指定）</p>
+    <div class="top3-grid">
+      <div class="t3card">
+        <div class="t3head">
+          <span class="rank-badge r1">1</span>
+          <span style="font-size:11px;color:var(--color-text-tertiary)">3/16（月）</span>
+          <a class="link-btn" href="https://x.com/_Agnostri/status/2033490961632993738" target="_blank">投稿を見る ↗</a>
+        </div>
+        <p class="t3text">「1億円貰えるはずが、手の中にあった2000万円すら失った」銀座の老朽ビル建て替え。オーナー提示の2000万円に対し、和食屋のテナントは1億円を要求してゴネた…</p>
+        <div class="t3metrics">
+          <span class="mpill"><span class="dot6" style="background:#378ADD"></span>imp <strong>10,950</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#D4537E"></span>いいね <strong>38</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#1D9E75"></span>BM <strong>4</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#BA7517"></span>プロフ <strong>42</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#7F77DD"></span>ENG <strong>209</strong></span>
+        </div>
+      </div>
+      <div class="t3card">
+        <div class="t3head">
+          <span class="rank-badge r2">2</span>
+          <span style="font-size:11px;color:var(--color-text-tertiary)">3/13（金）</span>
+          <a class="link-btn" href="https://x.com/_Agnostri/status/2032404301163704369" target="_blank">投稿を見る ↗</a>
+        </div>
+        <p class="t3text">5億円あるなら、ビル一棟なんて「絶対に」買うな。豪華なビル。一棟買い。憧れますよね。でも、それ全財産を宝くじ1枚に突っ込むのと同じ。ただのギャンブル…</p>
+        <div class="t3metrics">
+          <span class="mpill"><span class="dot6" style="background:#378ADD"></span>imp <strong>5,278</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#D4537E"></span>いいね <strong>33</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#1D9E75"></span>BM <strong>1</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#BA7517"></span>プロフ <strong>66</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#7F77DD"></span>ENG <strong>148</strong></span>
+        </div>
+      </div>
+      <div class="t3card">
+        <div class="t3head">
+          <span class="rank-badge r3">3</span>
+          <span style="font-size:11px;color:var(--color-text-tertiary)">3/28（土）</span>
+          <a class="link-btn" href="https://x.com/_Agnostri/status/2038022571115864177" target="_blank">投稿を見る ↗</a>
+        </div>
+        <p class="t3text">「連休でリフレッシュ」なんて言葉、信じるのは二流だけだ。本当のプロは、10日も休めば営業トークが錆びつき、脳の「仕事モード」が死ぬことを本能で知っている。</p>
+        <div class="t3metrics">
+          <span class="mpill"><span class="dot6" style="background:#378ADD"></span>imp <strong>1,549</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#D4537E"></span>いいね <strong>47</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#1D9E75"></span>BM <strong>0</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#BA7517"></span>プロフ <strong>14</strong></span>
+          <span class="mpill"><span class="dot6" style="background:#7F77DD"></span>ENG <strong>85</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- オーディエンス -->
+  <div class="sec">
+    <p class="sec-label">オーディエンス　2月 → 3月</p>
+    <div class="aud-grid">
+      <div class="aud-card">
+        <p class="lbl">年齢層（3月）</p>
+        <div class="bar-row"><span class="bar-lbl">13-17</span><div class="bar-track"><div class="bar-fill" style="width:2.7%;background:#B5D4F4"></div></div><span class="bar-pct">2.7%</span></div>
+        <div class="bar-row"><span class="bar-lbl">18-24</span><div class="bar-track"><div class="bar-fill" style="width:10.3%;background:#85B7EB"></div></div><span class="bar-pct">10.3%</span></div>
+        <div class="bar-row"><span class="bar-lbl">25-34</span><div class="bar-track"><div class="bar-fill" style="width:36.7%;background:#378ADD"></div></div><span class="bar-pct" style="font-weight:500;color:var(--color-text-primary)">36.7%</span></div>
+        <div class="bar-row"><span class="bar-lbl">35-44</span><div class="bar-track"><div class="bar-fill" style="width:24.5%;background:#378ADD"></div></div><span class="bar-pct">24.5%</span></div>
+        <div class="bar-row"><span class="bar-lbl">45-54</span><div class="bar-track"><div class="bar-fill" style="width:11.9%;background:#85B7EB"></div></div><span class="bar-pct">11.9%</span></div>
+        <div class="bar-row"><span class="bar-lbl">55-64</span><div class="bar-track"><div class="bar-fill" style="width:5.4%;background:#B5D4F4"></div></div><span class="bar-pct">5.4%</span></div>
+        <div class="bar-row"><span class="bar-lbl">65+</span><div class="bar-track"><div class="bar-fill" style="width:8.4%;background:#B5D4F4"></div></div><span class="bar-pct">8.4%</span></div>
+      </div>
+      <div class="aud-card">
+        <p class="lbl">性別・端末（3月）</p>
+        <div style="margin-bottom:10px">
+          <div style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:5px">性別</div>
+          <div class="bar-row"><span class="bar-lbl">男性</span><div class="bar-track"><div class="bar-fill" style="width:75.8%;background:#378ADD"></div></div><span class="bar-pct">75.8%</span></div>
+          <div class="bar-row"><span class="bar-lbl">女性</span><div class="bar-track"><div class="bar-fill" style="width:23.7%;background:#D4537E"></div></div><span class="bar-pct">23.7%</span></div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:5px">端末</div>
+          <div class="bar-row"><span class="bar-lbl">iOS</span><div class="bar-track"><div class="bar-fill" style="width:83.1%;background:#378ADD"></div></div><span class="bar-pct">83.1%</span></div>
+          <div class="bar-row"><span class="bar-lbl">Android</span><div class="bar-track"><div class="bar-fill" style="width:9.9%;background:#9FE1CB"></div></div><span class="bar-pct">9.9%</span></div>
+          <div class="bar-row"><span class="bar-lbl">Web</span><div class="bar-track"><div class="bar-fill" style="width:7.0%;background:#D3D1C7"></div></div><span class="bar-pct">7.0%</span></div>
+        </div>
+      </div>
+      <div class="aud-card">
+        <p class="lbl">フォロワー比率の変化</p>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:8px">フォロワーからのインプレッション割合</div>
+        <div class="bar-row">
+          <span class="bar-lbl" style="width:36px">2月</span>
+          <div class="bar-track"><div class="bar-fill" style="width:14.3%;background:#378ADD"></div></div>
+          <span class="bar-pct">14.3%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl" style="width:36px">3月</span>
+          <div class="bar-track"><div class="bar-fill" style="width:23.6%;background:#1D9E75"></div></div>
+          <span class="bar-pct" style="font-weight:500;color:var(--color-text-primary)">23.6%</span>
+        </div>
+        <div style="margin-top:10px" class="note-box">3月はフォロワーへのリーチが+9.3pt向上。2月バズの非フォロワー流入が落ち着き、コア読者への浸透が深まっている。</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('perPostChart'), {
+  type: 'bar',
+  data: {
+    labels: ['インプレッション\n(÷10)','いいね','エンゲージメント','ブックマーク×10','プロフアクセス'],
+    datasets: [
+      { label: '2月', data: [224, 16.0, 65.9, 6.0, 26.1], backgroundColor: '#B5D4F4', borderRadius: 3, borderWidth: 0 },
+      { label: '3月', data: [108, 11.7, 25.0, 9.0, 4.9],  backgroundColor: '#378ADD', borderRadius: 3, borderWidth: 0 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}` } } },
+    scales: {
+      x: { ticks:{font:{size:10},color:'#888'}, grid:{display:false} },
+      y: { ticks:{font:{size:10},color:'#888'}, grid:{color:'rgba(128,128,128,0.1)'} }
+    }
+  }
+});
+
+const febDaily = [3528,4652,3571,2725,4130,2761,1991,1266,2109,1307,2798,2107,1917,1997,1602,2269,3247,2993,51931,122351,29886,6936,7526,3653,6421,5528,2262,134561];
+const marDaily = [3011,6014,2456,2778,5849,5622,3511,11631,4444,13795,26823,13018,10840,8795,3299,4910,14337,7166,10032,19459,1669,2205,7379,10066,8604,4355,3829,4489,2936,9228,1142];
+
+new Chart(document.getElementById('dailyImpChart'), {
+  type: 'bar',
+  data: {
+    labels: Array.from({length:31},(_,i)=>i+1),
+    datasets: [
+      { label:'2月', data:[...febDaily, null, null, null], backgroundColor:'#B5D4F4', borderWidth:0, borderRadius:2 },
+      { label:'3月', data:marDaily, backgroundColor:'#378ADD', borderWidth:0, borderRadius:2 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${(ctx.parsed.y||0).toLocaleString()}` } } },
+    scales: {
+      x: { ticks:{font:{size:9},color:'#888',callback:(_,i)=>`${i+1}日`}, grid:{display:false} },
+      y: { ticks:{font:{size:9},color:'#888',callback:v=>v>=1000?(v/1000).toFixed(0)+'k':v}, grid:{color:'rgba(128,128,128,0.1)'} }
+    }
+  }
+});
+
+new Chart(document.getElementById('metricsChart'), {
+  type: 'bar',
+  data: {
+    labels: ['imp(÷1000)','いいね','BM','リポスト','プロフ(÷10)'],
+    datasets: [
+      { label:'2月', data:[418, 2067, 74, 65, 428], backgroundColor:'#B5D4F4', borderRadius:3, borderWidth:0 },
+      { label:'3月', data:[234, 2544, 187, 137, 107], backgroundColor:'#378ADD', borderRadius:3, borderWidth:0 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()}` } } },
+    scales: {
+      x: { ticks:{font:{size:10},color:'#888'}, grid:{display:false} },
+      y: { ticks:{font:{size:9},color:'#888'}, grid:{color:'rgba(128,128,128,0.1)'} }
+    }
+  }
+});
+</script>
